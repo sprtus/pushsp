@@ -1,6 +1,6 @@
 {
   "name": "pushsp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Push files from a Git repository directly to one or more SharePoint environments.",
   "bin": {
     "pushsp": "bin/pushsp.js"

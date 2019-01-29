@@ -4,27 +4,29 @@ Push files from a Git repository directly to one or more SharePoint environments
 
 ## Prerequisites
 
-You must have [Node.js version 8+](https://nodejs.org/) and [git](https://git-scm.com/) installed.
+You must have [Node.js version 8+](https://nodejs.org/) and [Git](https://git-scm.com/) installed.
 
 ## Getting Started
 
-Install the *pushsp* command globally to your machine using NPM:
+Install the `pushsp` command globally to your machine using NPM:
 
 ```sh
-npm install pushsp -g
+npm i pushsp -g
 ```
 
 Once installed, you can use the `pushsp` command from any terminal window.
 
 ## Commands
 
-### `init`
+### init
+
+Initializes the current directory as a PushSP directory. This command will create a new configuration file called `pushsp.json` if it doesn’t already exist.
 
 ```sh
 pushsp init
 ```
 
-Initializes the current directory as a PushSP directory. This command will create a new configuration file called `pushsp.json` if it doesn’t already exist. This JSON file contains several configuration options:
+#### pushsp.json
 
 1. `repo` – the Git repository from which to pull the solution
     * Works with both SSH and HTTPS
@@ -46,18 +48,18 @@ Initializes the current directory as a PushSP directory. This command will creat
     * You may also choose to manually specify authentication configuration
     * See [node-sp-auth documentation](https://github.com/s-KaiNet/node-sp-auth/blob/master/package.json) for more information on all available configuration options
 
-### `pull`
+### pull
+
+Pulls the latest solution from the configured Git repository and subsequently runs any specified build scripts.
 
 ```sh
 pushsp pull
 ```
 
-Pulls the latest solution from the configured Git repository and subsequently runs any specified build scripts.
+### push
 
-### `push`
+Deploys pulled files to all target SharePoint sites.
 
 ```sh
 pushsp push
 ```
-
-Deploys pulled files to all target SharePoint sites.
