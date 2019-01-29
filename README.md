@@ -2,6 +2,10 @@
 
 Push files from a Git repository directly to one or more SharePoint environments using [spsave](https://github.com/s-KaiNet/spsave).
 
+## Prerequisites
+
+You must have [Node.js version 8+](https://nodejs.org/) and [git](https://git-scm.com/) installed.
+
 ## Getting Started
 
 Install the *pushsp* command globally to your machine using NPM:
