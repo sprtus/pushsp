@@ -1,0 +1,21 @@
+{
+  "name": "pushsp",
+  "version": "1.0.0",
+  "description": "Push files to SharePoint",
+  "bin": {
+    "pushsp": "bin/pushsp.js"
+  },
+  "scripts": {
+    "pushsp": "NODE_ENV=development node ./bin/pushsp"
+  },
+  "repository": "https://github.com/sprtus/pushsp.git",
+  "author": "@kyleschaeffer",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "rimraf": "^2.6.3",
+    "spsave": "^3.1.5"
+  }
+}
