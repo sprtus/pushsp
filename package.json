@@ -1,16 +1,27 @@
 {
   "name": "pushsp",
   "version": "1.0.0",
-  "description": "Push files to SharePoint",
+  "description": "Push files from a Git repository directly to one or more SharePoint environments.",
   "bin": {
     "pushsp": "bin/pushsp.js"
   },
   "scripts": {
     "pushsp": "NODE_ENV=development node ./bin/pushsp"
   },
-  "repository": "https://github.com/sprtus/pushsp.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sprtus/pushsp.git"
+  },
+  "keywords": [
+    "sharepoint",
+    "provisioning",
+    "deployment"
+  ],
   "author": "@kyleschaeffer",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sprtus/pushsp/issues"
+  },
   "dependencies": {
     "commander": "^2.19.0",
     "fs": "^0.0.1-security",
