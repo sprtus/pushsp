@@ -13,7 +13,7 @@ module.exports = async function(config) {
 
   // Pull repository
   console.log('Cloning repository...');
-  await utility.shell(`git clone ${config.repo} ${utility.path(config.pullFolder)}`);
+  await utility.shell(`git clone ${config.repo} "${utility.path(config.pullFolder)}"`);
 
   // Run build scripts
   for (const buildScript of config.buildScripts) {
