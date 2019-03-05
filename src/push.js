@@ -5,12 +5,29 @@ const fs = require('fs');
 const globby = require('globby');
 const path = require('path');
 
+// Known folders that don't need to be created on deployment
+const knownFolders = [
+  '_catalogs',
+  '_catalogs/masterpage',
+  '_catalogs/wp',
+];
+
 module.exports = async function(config) {
   // Begin
   console.log(chalk.white.bold('\nPushing latest to all sites...'));
 
-  // Get files and folders
+  // Add folders
   const folders = [];
+  function addFolders(dir) {
+    let folderSegments = dir.split('/');
+    while (folderSegments.length) {
+      const newFolder = folderSegments.join('/');
+      if (folders.indexOf(newFolder) === -1 && knownFolders.indexOf(newFolder) === -1) folders.push(newFolder);
+      folderSegments.pop();
+    }
+  }
+
+  // Get files and folders
   const cwd = process.cwd();
   const files = globby.sync(config.pushFiles, { cwd }).map(filePath => {
     // Get file stats
@@ -19,7 +36,7 @@ module.exports = async function(config) {
 
     // Get relative directory
     const dir = path.dirname(filePath).replace(config.pushFilesBase, '').replace(/^\//g, '');
-    if (folders.indexOf(dir) === -1) folders.push(dir);
+    addFolders(dir);
 
     // Process file
     return {
