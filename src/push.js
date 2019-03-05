@@ -75,10 +75,11 @@ module.exports = async function(config) {
       }).catch(e => console.error);
 
       // Create folders
-      console.log('  Verifying target folders');
+      console.log('Verifying target folders');
       for (const folder of folders) {
-        console.log(chalk.gray(`    ${folder}`));
-        await web.folders.add(folder).catch(e => {});
+        console.log(chalk.gray(`  ${folder}`));
+        const rFolder = `${webRelativeUrl}/${folder}`.replace(/\/+/g, '/');
+        await web.folders.add(rFolder).catch(e => {});
       }
 
       // Create files
@@ -89,17 +90,17 @@ module.exports = async function(config) {
 
         // Get URL
         const url = `${site}/${rFolder}/${chalk.bold(file.name)}`.replace(/\/+/g, '/');
-        console.log(`  ${url}`);
+        console.log(url);
 
         // Check out, upload, check in, approve
         await web.getFileByServerRelativeUrl(rFile).checkout().catch(e => {});
-        console.log(`    ${chalk.cyan('✓')} ${chalk.gray('Checked out')}`);
+        console.log(`  ${chalk.cyan('✓')} ${chalk.gray('Checked out')}`);
         await web.getFolderByServerRelativePath(rFolder).files.add(file.name, file.content, true).catch(e => {});
-        console.log(`    ${chalk.cyan('✓')} ${chalk.gray('Uploaded')}`);
+        console.log(`  ${chalk.cyan('✓')} ${chalk.gray('Uploaded')}`);
         await web.getFileByServerRelativeUrl(rFile).checkin('Updated via pushsp', 1).catch(e => {});
-        console.log(`    ${chalk.cyan('✓')} ${chalk.gray('Checked in')}`);
+        console.log(`  ${chalk.cyan('✓')} ${chalk.gray('Checked in')}`);
         await web.getFileByServerRelativeUrl(rFile).approve('Approved via pushsp').catch(e => {});
-        console.log(`    ${chalk.cyan('✓')} ${chalk.gray('Approved')}`);
+        console.log(`  ${chalk.cyan('✓')} ${chalk.gray('Approved')}`);
       }
     });
 

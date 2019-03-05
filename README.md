@@ -1,6 +1,6 @@
 # PushSP
 
-Push files from a Git repository directly to one or more SharePoint environments using [spsave](https://github.com/s-KaiNet/spsave).
+Push files from a Git repository directly to one or more SharePoint environments using [PnPJS](https://github.com/pnp/pnpjs).
 
 ## Prerequisites
 
