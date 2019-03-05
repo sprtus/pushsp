@@ -1,6 +1,6 @@
 {
   "name": "pushsp",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Push files from a Git repository directly to one or more SharePoint environments.",
   "bin": {
     "pushsp": "bin/pushsp.js"
@@ -23,10 +23,12 @@
     "url": "https://github.com/sprtus/pushsp/issues"
   },
   "dependencies": {
+    "@pnp/pnpjs": "^1.2.9",
     "commander": "^2.19.0",
     "fs": "^0.0.1-security",
+    "globby": "^9.1.0",
     "path": "^0.12.7",
     "rimraf": "^2.6.3",
-    "spsave": "^3.1.5"
+    "sp-pnp-node": "^2.1.3"
   }
 }
