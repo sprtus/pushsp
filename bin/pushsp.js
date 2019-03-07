@@ -9,7 +9,7 @@ const pull = require('../src/pull');
 const push = require('../src/push');
 
 // Version
-program.version('1.1.1');
+program.version('1.1.2');
 
 // Init
 program.command('init').action(cmd => init());
